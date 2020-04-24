@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.405,D:\Лабы(ОАиП)\LAB5(version 2)\list2.cpp=D:\Лабы(ОАиП)\LAB5(version 2)\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.628,C:\Users\ALYONA\Documents\Embarcadero\Studio\Projects\Unit5.cpp=D:\Лабы(ОАиП)\LAB5(version 2)\Unit5.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.351,=C:\Users\ALYONA\Documents\Embarcadero\Studio\Projects\Unit5.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.893,D:\Лабы(ОАиП)\LAB5(version 2)\main.h=D:\Лабы(ОАиП)\LAB5(version 2)\Unit4.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.576,C:\Users\ALYONA\Documents\Embarcadero\Studio\Projects\Unit4.dfm=D:\Лабы(ОАиП)\LAB5(version 2)\Unit4.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.406,D:\Лабы(ОАиП)\LAB5(version 2)\list2.h=D:\Лабы(ОАиП)\LAB5(version 2)\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.628,C:\Users\ALYONA\Documents\Embarcadero\Studio\Projects\Unit5.h=D:\Лабы(ОАиП)\LAB5(version 2)\Unit5.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.211,D:\Лабы(ОАиП)\LAB5(version 2)\queue.cpp=D:\Лабы(ОАиП)\LAB5(version 2)\Unit6.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.664,=D:\Лабы(ОАиП)\LAB5(version 2)\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.211,D:\Лабы(ОАиП)\LAB5(version 2)\queue.h=D:\Лабы(ОАиП)\LAB5(version 2)\Unit6.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.893,D:\Лабы(ОАиП)\LAB5(version 2)\main.dfm=D:\Лабы(ОАиП)\LAB5(version 2)\Unit4.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.698,D:\Лабы(ОАиП)\LAB5(version 2)\list1.h=D:\Лабы(ОАиП)\LAB5(version 2)\Unit5.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.395,=C:\Users\ALYONA\Documents\Embarcadero\Studio\Projects\Unit4.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.576,C:\Users\ALYONA\Documents\Embarcadero\Studio\Projects\Unit4.cpp=D:\Лабы(ОАиП)\LAB5(version 2)\Unit4.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.893,D:\Лабы(ОАиП)\LAB5(version 2)\main.cpp=D:\Лабы(ОАиП)\LAB5(version 2)\Unit4.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.576,C:\Users\ALYONA\Documents\Embarcadero\Studio\Projects\Unit4.h=D:\Лабы(ОАиП)\LAB5(version 2)\Unit4.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.393,=D:\Лабы(ОАиП)\LAB5(version 2)\Unit6.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.128,C:\Users\ALYONA\Documents\Embarcadero\Studio\Projects\Project4.cbproj=D:\Лабы(ОАиП)\LAB5(version 2)\Project4.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.345,=C:\Users\ALYONA\Documents\Embarcadero\Studio\Projects\Project4PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.492,C:\Users\ALYONA\Documents\Embarcadero\Studio\Projects\Project4PCH1.h=D:\Лабы(ОАиП)\LAB5(version 2)\Project4PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.698,D:\Лабы(ОАиП)\LAB5(version 2)\list1.cpp=D:\Лабы(ОАиП)\LAB5(version 2)\Unit5.cpp</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Project4.cpp"/>
+    <File Path="Project4PCH1.h"/>
+    <File Path="main.cpp"/>
+    <File Path="main.cpp"/>
+    <File Path="main.dfm"/>
+    <File Path="main.h"/>
+    <File Path="list1.cpp"/>
+    <File Path="list1.cpp"/>
+    <File Path="list1.h"/>
+    <File Path="queue.cpp"/>
+    <File Path="queue.cpp"/>
+    <File Path="queue.h"/>
+    <File Path="list2.cpp"/>
+    <File Path="list2.cpp"/>
+    <File Path="list2.h"/>
+  </ProjectSortOrder>
+</BorlandProject>

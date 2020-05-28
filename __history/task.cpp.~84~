@@ -1,0 +1,72 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "task.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+queue *Queue;
+
+void task::list_unique(task* lst)
+{
+	list *t, *p, *i, *temp, *prev;
+	int first = 0;
+	list *h;
+	for(p = lst->frnt; p != NULL; p = p->ptr)
+	{
+		bool check = false;
+		temp = p;
+		prev = p;
+		for(i = p->ptr; i != NULL; )
+		{
+			if(i->field == p->field)
+			{
+				check = true;
+				t = prev->ptr = i->ptr;
+				//free(i);
+                delete i;
+				i = t;
+				continue;
+			}
+			prev = i;
+			i = i->ptr;
+		}
+	}
+}
+
+void task::initiz_task(task *q)
+{
+	q->rear = 0;
+	q->frnt = 0;
+}
+
+int task::isempty_task(task *q)
+{
+	if(q->rear == 0)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+void task::insert_task(task *q, int x, int check)
+{
+	if(check == 0)
+	{
+		q->rear = 0;
+		q->frnt = 0;
+	}
+	if((q->rear == 0) && (q->frnt == 0))
+	{
+		q->rear = Queue->init(x);
+		q->frnt = q->rear;
+	}
+	else
+	{
+		q->rear = Queue->addelem(q->rear, x);
+	}
+}

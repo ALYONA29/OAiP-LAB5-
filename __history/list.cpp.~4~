@@ -1,0 +1,48 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "list.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+list* list::addelem(list *lst, int number)
+{
+	list *temp, *p;
+	temp = (list*)malloc(sizeof(list));
+	p = lst->ptr;
+	lst->ptr = temp;
+	temp->field = number;
+	temp->ptr = p;
+	return(temp);
+}
+
+list* list::init(int a)
+{
+	list *lst;
+	lst = (list*)malloc(sizeof(list));
+	lst->field = a;
+	lst->ptr = NULL;
+	return(lst);
+}
+
+list* list::deletelem(list *lst, list *root)
+{
+	list *temp;
+	temp = root;
+	while (temp->ptr != lst) // просматриваем список начиная с корня
+	{ // пока не найдем узел, предшествующий lst
+		temp = temp->ptr;
+	}
+	temp->ptr = lst->ptr; // переставляем указатель
+	free(lst); // освобождаем память удаляемого узла
+	return(temp);
+}
+
+list* list::deletehead(list *root)
+{
+  list *temp;
+  temp = root->ptr;
+  free(root); // освобождение памяти текущего корня
+  return(temp); // новый корень списка
+}

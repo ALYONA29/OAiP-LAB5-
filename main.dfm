@@ -57,7 +57,7 @@ object Form4: TForm4
     Height = 25
     Caption = #1059#1076#1072#1083#1080#1090#1100
     TabOrder = 1
-    OnClick = Button1Click
+    OnClick = DeleteElementClick
   end
   object Button2: TButton
     Left = 327
@@ -66,7 +66,7 @@ object Form4: TForm4
     Height = 25
     Caption = #1055#1077#1095#1072#1090#1100
     TabOrder = 2
-    OnClick = Button2Click
+    OnClick = PrintClick
   end
   object Button3: TButton
     Left = 327
@@ -75,7 +75,7 @@ object Form4: TForm4
     Height = 25
     Caption = #1044#1086#1073#1072#1074#1080#1090#1100
     TabOrder = 3
-    OnClick = Button3Click
+    OnClick = AddClick
   end
   object Button4: TButton
     Left = 24
@@ -84,7 +84,7 @@ object Form4: TForm4
     Height = 25
     Caption = #1042#1099#1093#1086#1076
     TabOrder = 4
-    OnClick = Button4Click
+    OnClick = ExitClick
   end
   object Edit1: TEdit
     Left = 327
@@ -102,7 +102,7 @@ object Form4: TForm4
     Height = 25
     Caption = #1056#1072#1079#1084#1077#1088' '#1086#1095#1077#1088#1077#1076#1080
     TabOrder = 6
-    OnClick = Button5Click
+    OnClick = SizeClick
   end
   object Button6: TButton
     Left = 408
@@ -111,7 +111,7 @@ object Form4: TForm4
     Height = 25
     Caption = #1057#1086#1079#1076#1072#1090#1100' '#1089#1087#1080#1089#1086#1082
     TabOrder = 7
-    OnClick = Button6Click
+    OnClick = TaskAddClick
   end
   object Edit2: TEdit
     Left = 408
@@ -129,7 +129,7 @@ object Form4: TForm4
     Height = 25
     Caption = #1055#1077#1095#1072#1090#1100' '#1089#1087#1080#1089#1082#1072
     TabOrder = 9
-    OnClick = Button7Click
+    OnClick = TaskPrintClick
   end
   object Button8: TButton
     Left = 618
@@ -138,6 +138,6 @@ object Form4: TForm4
     Height = 25
     Caption = #1059#1076#1072#1083#1080#1090#1100
     TabOrder = 10
-    OnClick = Button8Click
+    OnClick = TaskDeleteSameClick
   end
 end

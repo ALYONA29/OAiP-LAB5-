@@ -110,13 +110,9 @@
         <BCC_PCHName_Clang>Project4PCH1.h</BCC_PCHName_Clang>
     </PropertyGroup>
     <ItemGroup>
-        <CppCompile Include="list1.cpp">
-            <DependentOn>list1.h</DependentOn>
+        <CppCompile Include="list.cpp">
+            <DependentOn>list.h</DependentOn>
             <BuildOrder>3</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="list2.cpp">
-            <DependentOn>list2.h</DependentOn>
-            <BuildOrder>5</BuildOrder>
         </CppCompile>
         <CppCompile Include="main.cpp">
             <Form>Form4</Form>
@@ -134,6 +130,10 @@
         <CppCompile Include="queue.cpp">
             <DependentOn>queue.h</DependentOn>
             <BuildOrder>4</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="task.cpp">
+            <DependentOn>task.h</DependentOn>
+            <BuildOrder>5</BuildOrder>
         </CppCompile>
         <FormResources Include="main.dfm"/>
         <BuildConfiguration Include="Release">

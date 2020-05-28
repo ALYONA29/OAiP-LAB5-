@@ -1,0 +1,162 @@
+//---------------------------------------------------------------------------
+#include <vcl.h>
+#include <malloc.h>
+#include <conio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#pragma hdrstop
+
+#include "task.h"
+#include "main.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm4 *Form4;
+queue  *q;
+task *head, *mylist;
+int check = 0;
+int check2 = 0;
+//---------------------------------------------------------------------------
+__fastcall TForm4::TForm4(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm4::AddClick(TObject *Sender)
+{
+	if(Edit1->Text == "")
+	{
+		ShowMessage("Введите данные!");
+	}
+	else
+	{
+		int a = StrToInt(Edit1->Text);
+		q->insert(q, a, check);
+		check++;
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm4::FormCreate(TObject *Sender)
+{
+	q = (queue*)malloc(sizeof(queue*));
+	q->initiz(q);
+	mylist = (task*)malloc(sizeof(task*));
+	mylist->initiz_task(mylist);
+	Edit1->Clear();
+	Edit2->Clear();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm4::PrintClick(TObject *Sender)
+{
+	ListBox1->Clear();
+	list *h;
+	if(q->isempty(q) == 1)
+	{
+		ListBox1->Items->Add("Очередь пуста!");
+	}
+	else
+	{
+		for(h = q->frnt; h != NULL; h = h->ptr)
+		{
+			ListBox1->Items->Add(IntToStr(h->field));
+		}
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm4::ExitClick(TObject *Sender)
+{
+     Close();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm4::DeleteElementClick(TObject *Sender)
+{
+	if(q->isempty(q) == 1)
+	{
+		ListBox1->Items->Add("Очередь пуста!");
+		return ;
+	}
+	else
+	{
+		q->delete_queue(q);
+    	check--;
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm4::SizeClick(TObject *Sender)
+{
+	ListBox1->Clear();
+	ListBox1->Items->Add("Размер очереди : " + IntToStr(check));
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm4::TaskAddClick(TObject *Sender)
+{
+	 if(Edit2->Text == "")
+	 {
+		 ShowMessage("Введите данные!");
+	 }
+	 else
+	 {
+		 check2 = 0;
+		 int number = rand() % 100 + 1;
+		 for(int i = 0; i < StrToInt(Edit2->Text); i++)
+		 {
+			 number = rand() % 100 + 1;
+             mylist->insert_task(mylist, number, check2);
+			 check2++;
+		 }
+	 }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm4::TaskPrintClick(TObject *Sender)
+{
+    ListBox1->Clear();
+	list *h;
+	if(mylist->isempty(mylist) == 1)
+	{
+		ListBox1->Items->Add("Очередь пуста!");
+	}
+	else
+	{
+		for(h = mylist->frnt; h != NULL; h = h->ptr)
+		{
+			ListBox1->Items->Add(IntToStr(h->field));
+		}
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm4::TaskDeleteSameClick(TObject *Sender)
+{
+	mylist->list_unique(mylist);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm4::Edit1KeyPress(TObject *Sender, System::WideChar &Key)
+{
+	if((Key < '0' || Key > '9')&& Key != VK_BACK && Key != VK_DELETE && Key != 13)
+	{
+
+		ShowMessage("Недопустимый символ! Доступен ввод целых чисел.");
+		Key = NULL;
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm4::Edit2KeyPress(TObject *Sender, System::WideChar &Key)
+{
+    if((Key < '0' || Key > '9')&& Key != VK_BACK && Key != VK_DELETE && Key != 13)
+	{
+		ShowMessage("Недопустимый символ! Доступен ввод целых чисел.");
+		Key = NULL;
+	}
+}
+//---------------------------------------------------------------------------
+

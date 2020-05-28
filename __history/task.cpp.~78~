@@ -1,0 +1,141 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "task.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+/*task* task::init(int a)
+{
+	task *lst;
+	lst = (task*)malloc(sizeof(task));
+	lst->field = a;
+	lst->next = NULL;
+	lst->prev = NULL;
+	return(lst);
+}
+
+task* task::addelem(task *lst, int number)
+{
+	task *temp, *p;
+	temp = (task*)malloc(sizeof(task));
+	p = (task *)lst->next;
+	lst->next = temp;
+	temp->field = number;
+	temp->next = p;
+	temp->prev = lst;
+	if (p != NULL)
+	{
+		p->prev = temp;
+	}
+	return(temp);
+}*/
+
+task* task::deletelem(task *lst)
+{
+	task *prev, *next;
+	prev = lst->prev;
+	next = lst->next;
+	if (prev != NULL)
+	{
+		prev->frnt = lst->next;
+	}
+	if (next != NULL)
+	{
+		next->rear = lst->prev;
+	}
+	free(lst);
+	return(prev);
+}
+
+task* task::deletehead(task *root)
+{
+	task *temp;
+	temp = root->next;
+	temp->prev = NULL;
+	free(root);
+	return(temp);
+}
+
+task* task::list_unique(task* lst)
+{
+	task *t, *p, *i, *temp;
+	task *prev;
+	int first = 0;
+	for(p = lst; p != NULL; p = p->next)
+	{
+		bool check = false;
+		temp = p;
+		prev = p;
+		for(i = p->next; i != NULL; )
+		{
+			if(i->field == p->field)
+			{
+				check = true;
+				t = prev->next = i->next;
+				free(i);
+				i = t;
+				continue;
+			}
+			prev = i;
+			i = i->next;
+		}
+		if(check == true && first == 0)
+		{
+			p->next = deletehead(p);
+			lst = deletehead(p);
+			first = 0;
+		}
+		else if(check == true)
+		{
+			deletelem(p);
+			first++;
+		}
+		else
+		{
+			first++;
+		}
+	}
+	return lst;
+}
+
+queue *Queue;
+
+void task::initiz_task(task *q)
+{
+	q->rear = 0;
+	q->frnt = 0;
+}
+
+int task::isempty_task(task *q)
+{
+	if(q->rear == 0)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+void task::insert_task(task *q, int x, int check)
+{
+	if(check == 0)
+	{
+		q->rear = 0;
+		q->frnt = 0;
+	}
+	if((q->rear == 0) && (q->frnt == 0))
+	{
+		q->rear = Queue->init(x);
+		q->frnt = q->rear;
+	}
+	else
+	{
+		q->rear = Queue->addelem(q->rear, x);
+	}
+}
+
+

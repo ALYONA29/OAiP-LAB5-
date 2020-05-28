@@ -6,14 +6,14 @@
 #include <stdlib.h>
 #pragma hdrstop
 
-#include "list2.h"
+#include "task.h"
 #include "main.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TForm4 *Form4;
 queue  *q;
-list2 *head, *mylist;
+task *head, *mylist;
 int check = 0;
 int check2 = 0;
 //---------------------------------------------------------------------------
@@ -23,7 +23,7 @@ __fastcall TForm4::TForm4(TComponent* Owner)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm4::Button3Click(TObject *Sender)
+void __fastcall TForm4::AddClick(TObject *Sender)
 {
 	if(Edit1->Text == "")
 	{
@@ -33,21 +33,23 @@ void __fastcall TForm4::Button3Click(TObject *Sender)
 	{
 		int a = StrToInt(Edit1->Text);
 		q->insert(q, a, check);
-    	check++;
+		check++;
 	}
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm4::FormCreate(TObject *Sender)
 {
-    q = (queue*)malloc(sizeof(queue*));
+	q = new queue();
 	q->initiz(q);
+    mylist = new task();
+	mylist->initiz(mylist);
 	Edit1->Clear();
 	Edit2->Clear();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm4::Button2Click(TObject *Sender)
+void __fastcall TForm4::PrintClick(TObject *Sender)
 {
 	ListBox1->Clear();
 	list *h;
@@ -59,43 +61,41 @@ void __fastcall TForm4::Button2Click(TObject *Sender)
 	{
 		for(h = q->frnt; h != NULL; h = h->ptr)
 		{
-		    ListBox1->Items->Add(IntToStr(h->field));
+			ListBox1->Items->Add(IntToStr(h->field));
 		}
 	}
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm4::Button4Click(TObject *Sender)
+void __fastcall TForm4::ExitClick(TObject *Sender)
 {
      Close();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm4::Button1Click(TObject *Sender)
+void __fastcall TForm4::DeleteElementClick(TObject *Sender)
 {
-	list *temp;
-	int x;
 	if(q->isempty(q) == 1)
 	{
 		ListBox1->Items->Add("Очередь пуста!");
 		return ;
 	}
-	x = q->frnt->field;
-	temp = q->frnt;
-	q->frnt = q->frnt->ptr;
-	free(temp);
-    check--;
+	else
+	{
+		q->delete_queue(q);
+    	check--;
+	}
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm4::Button5Click(TObject *Sender)
+void __fastcall TForm4::SizeClick(TObject *Sender)
 {
 	ListBox1->Clear();
 	ListBox1->Items->Add("Размер очереди : " + IntToStr(check));
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm4::Button6Click(TObject *Sender)
+void __fastcall TForm4::TaskAddClick(TObject *Sender)
 {
 	 if(Edit2->Text == "")
 	 {
@@ -108,47 +108,36 @@ void __fastcall TForm4::Button6Click(TObject *Sender)
 		 for(int i = 0; i < StrToInt(Edit2->Text); i++)
 		 {
 			 number = rand() % 100 + 1;
-			 if(check2 == 0)
-			 {
-				 head = mylist->init(number);
-				 mylist = head;
-			 }
-			 else
-			 {
-				 mylist = mylist->addelem(mylist, number);
-			 }
+             mylist->insert(mylist, number, check2);
 			 check2++;
-     	 }
+		 }
 	 }
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm4::Button7Click(TObject *Sender)
+void __fastcall TForm4::TaskPrintClick(TObject *Sender)
 {
-	ListBox1->Clear();
-	if(check2 == 0)
+    ListBox1->Clear();
+	list *h;
+	if(mylist->isempty(mylist) == 1)
 	{
-		ShowMessage("Список пуст");
+		ListBox1->Items->Add("Очередь пуста!");
 	}
 	else
 	{
-		list2 *p;
-		p = head;
-		do {
-			ListBox1->Items->Add(IntToStr(p->field));
-			p = p->next;
-     	} while (p != NULL);
+		for(h = mylist->frnt; h != NULL; h = h->ptr)
+		{
+			ListBox1->Items->Add(IntToStr(h->field));
+		}
 	}
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm4::Button8Click(TObject *Sender)
+void __fastcall TForm4::TaskDeleteSameClick(TObject *Sender)
 {
-    head = mylist->list_unique(head);
+	mylist->list_unique(mylist);
 }
 //---------------------------------------------------------------------------
-
-
 
 void __fastcall TForm4::Edit1KeyPress(TObject *Sender, System::WideChar &Key)
 {

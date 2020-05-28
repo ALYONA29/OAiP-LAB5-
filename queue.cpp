@@ -51,3 +51,12 @@ int queue::test(queue *q)
     return x;
 }
 
+void queue::delete_queue(queue *q)
+{
+	int x;
+    list *temp;
+	x = q->frnt->field;
+	temp = q->frnt;
+	q->frnt = q->frnt->ptr;
+    delete temp;
+}

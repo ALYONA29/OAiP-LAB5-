@@ -1,0 +1,159 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "task.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+/*task* task::init(int a)
+{
+	task *lst;
+	lst = (task*)malloc(sizeof(task));
+	lst->field = a;
+	lst->next = NULL;
+	lst->prev = NULL;
+	return(lst);
+}
+
+task* task::addelem(task *lst, int number)
+{
+	task *temp, *p;
+	temp = (task*)malloc(sizeof(task));
+	p = (task *)lst->next;
+	lst->next = temp;
+	temp->field = number;
+	temp->next = p;
+	temp->prev = lst;
+	if (p != NULL)
+	{
+		p->prev = temp;
+	}
+	return(temp);
+}*/
+
+/*task* task::deletelem(task *lst)
+{
+	task *prev, *next;
+	prev = lst->prev;
+	next = lst->next;
+	if (prev != NULL)
+	{
+		prev->frnt = lst->next;
+	}
+	if (next != NULL)
+	{
+		next->rear = lst->prev;
+	}
+	free(lst);
+	return(prev);
+}
+
+task* task::deletehead(task *root)
+{
+	task *temp;
+	temp = root->next;
+	temp->prev = NULL;
+	free(root);
+	return(temp);
+}*/
+
+queue *Queue;
+
+void task::list_unique(task* lst)
+{
+	list *t, *p, *i, *temp, *prev, *root;
+	int first = 0;
+    list *h;
+	/*if(mylist->isempty(mylist) == 1)
+	{
+		ListBox1->Items->Add("Очередь пуста!");
+	}
+	else
+	{
+		for(h = mylist->frnt; h != NULL; h = h->ptr)
+		{
+			ListBox1->Items->Add(IntToStr(h->field));
+		}
+	}*/
+	for(p = lst->frnt; p != NULL; p = p->ptr)
+	{
+		bool check = false;
+		temp = p;
+		prev = p;
+		for(i = p->ptr; i != NULL; )
+		{
+			if(i->field == p->field)
+			{
+				check = true;
+				t = prev->ptr = i->ptr;
+				free(i);
+				i = t;
+				continue;
+			}
+			prev = i;
+			i = i->ptr;
+		}
+		/*if(check == true && first == 0)
+		{
+			p->ptr = Queue->deletehead(p);
+			//lst = (task *)Queue->deletehead(p);
+			first = 0;
+		}
+		else if(check == true)
+		{
+			Queue->deletelem(p, head);
+			first++;
+		}
+		else
+		{
+			first++;
+		}*/
+	}
+}
+
+void task::initiz_task(task *q)
+{
+	q->rear = 0;
+	q->frnt = 0;
+}
+
+int task::isempty_task(task *q)
+{
+	if(q->rear == 0)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+void task::insert_task(task *q, int x, int check)
+{
+	if(check == 0)
+	{
+		q->rear = 0;
+		q->frnt = 0;
+	}
+	if((q->rear == 0) && (q->frnt == 0))
+	{
+		q->rear = Queue->init(x);
+		q->frnt = q->rear;
+	}
+	else
+	{
+		q->rear = Queue->addelem(q->rear, x);
+	}
+}
+
+/*void task::delete_list(list *q)
+{
+	int x;
+	list *temp;
+	x = q->field;
+	temp = q->ptr;
+	q->ptr = q->frnt->ptr;
+	free(temp);
+}*/

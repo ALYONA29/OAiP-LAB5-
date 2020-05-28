@@ -1,0 +1,24 @@
+//---------------------------------------------------------------------------
+
+#ifndef taskH
+#define taskH
+//---------------------------------------------------------------------------
+#endif
+
+#include "queue.h"
+
+class task : public queue
+{
+  public:
+	task *next;
+	task *prev;
+    queue* info;
+	//task* init(int a);
+	//task* addelem(task *lst, int number);
+	task* deletelem(task *lst);
+	task* deletehead(task *root);
+	void initiz_task(task *q);
+	int isempty_task(task *q);
+	void insert_task(task *q, int x, int check);
+	task* list_unique(task* lst);
+};

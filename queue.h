@@ -5,7 +5,7 @@
 //---------------------------------------------------------------------------
 #endif
 
-#include "list1.h"
+#include "list.h"
 
 class queue : public list
 {
@@ -15,4 +15,5 @@ class queue : public list
 	int isempty(queue *q);
 	void insert(queue *q, int x, int check);
 	int test(queue *q);
+    void delete_queue(queue *q);
 };

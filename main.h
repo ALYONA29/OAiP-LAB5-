@@ -26,15 +26,15 @@ __published:	// IDE-managed Components
 	TLabel *Label2;
 	TLabel *Label3;
 	TLabel *Label4;
-	void __fastcall Button3Click(TObject *Sender);
+	void __fastcall AddClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
-	void __fastcall Button2Click(TObject *Sender);
-	void __fastcall Button4Click(TObject *Sender);
-	void __fastcall Button1Click(TObject *Sender);
-	void __fastcall Button5Click(TObject *Sender);
-	void __fastcall Button6Click(TObject *Sender);
-	void __fastcall Button7Click(TObject *Sender);
-	void __fastcall Button8Click(TObject *Sender);
+	void __fastcall PrintClick(TObject *Sender);
+	void __fastcall ExitClick(TObject *Sender);
+	void __fastcall DeleteElementClick(TObject *Sender);
+	void __fastcall SizeClick(TObject *Sender);
+	void __fastcall TaskAddClick(TObject *Sender);
+	void __fastcall TaskPrintClick(TObject *Sender);
+	void __fastcall TaskDeleteSameClick(TObject *Sender);
 	void __fastcall Edit1KeyPress(TObject *Sender, System::WideChar &Key);
 	void __fastcall Edit2KeyPress(TObject *Sender, System::WideChar &Key);
 private:	// User declarations
